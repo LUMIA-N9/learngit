@@ -1,0 +1,32 @@
+git init //初始化当前目录为一个仓库
+
+//添加文件到Git仓库，分两步
+git add <file> //添加文件，可反复使用，可一次添加多个文件，用空格分开
+git commit -m "信息注释"//完成，-m 后可输入本次提交说明，最好是有实际意义的
+
+git status  //随时掌握工作区的状态
+git diff  //可以查看修改内容
+git log //查看每次修改了什么内容，历史记录
+git log --pretty=oneline //git log加上参数，可精简其输出的信息，只展示commit id以及每次的commit说明
+git reset --hard commit_id //在版本历史之间穿梭
+git log //穿梭前可以查看提交历史，以便确定要回退到哪个版本
+git reflog //要重返未来，查看命令历史，以便确定要回到未来的哪个版本
+git checkout --file //分两种情况：
+                    //一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+                    //一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+                    //总之该命令可以让文件回到最近一次git commit或git add时的状态
+git reset HEAD file //可以把暂存区的修改撤销掉unstage，重新放回工作区
+git rm //用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删（本地误删），但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容
+git remote add origin https://github.com/LUMIA-N9/learngit.git //关联远程库，通过https协议，速度慢，每次推送都必须输入口令
+git remote add origin git@github.com:LUMIA-N9/learngit.git ///使用ssh协议，git还支持其它多种协议
+git push -u origin master //关联后第一次推送master分支的所有内容
+git push origin master //此后可直接推送，不必-u参数
+git clone //也有对应的多种协议
+git checkout -b dev  //创建dev分支并切换到dev分支，相当于git branch dev 然后 git checkout dev
+git branch //可列出所有分支
+git checkout master //切换回master分支
+git merge dev //将指定的dev分支合并到当前分支
+git branch -d dev //删除dev分支
+git log --graph --pretty=oneline --abbrev-commit //查看分支合并情况
+git merge --no-ff -m "some commit" branch-name //禁用fastforward合并，可以看的出来进行过合并
+
