@@ -49,4 +49,7 @@ git tag -a <tagname> -m "blablabla..." id //可以指定标签信息
 git tag -s <tagname> -m "blablabla..." id //可以用PGP签名标签
 git tag //查看所有标签
 git show <tagname> //可以查看标签xxx的详细信息
-
+git tag -d v0.1 //删除某个标签
+git push origin v1.0 //推送某个标签到远程
+git push origin --tags //推送全部尚未推送到远程的本地标签
+git push origin :refs/tags/v0.9 //如果标签已经全部推送到远程，就要先删除本地标签，然后从远程删除
