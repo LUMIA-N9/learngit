@@ -34,4 +34,5 @@ git stash list //查看之前git stash 保存的现场环境
 git stash apply xxx //恢复现场，不会自动删除stash list
 git stash drop xxx //删除之前保存的某个现场
 git stash pop //恢复现场并删除stash list中保存的该现场
+git branch -D xxx //强行删除未进行合并的分支
 
