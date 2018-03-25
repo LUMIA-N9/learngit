@@ -44,3 +44,9 @@ git checkout -b branch-name origin/branch-name //在本地创建和远程分支�
 git branch --set-upstream branch-name origin/branch-name //建立本地分支和远程分支的关联
 git pull //从远程抓取分支
 
+git tag <name> //用于新建一个标签，默认未HEAD，也可以指定一个commit id
+git tag -a <tagname> -m "blablabla..." id //可以指定标签信息
+git tag -s <tagname> -m "blablabla..." id //可以用PGP签名标签
+git tag //查看所有标签
+git show <tagname> //可以查看标签xxx的详细信息
+
