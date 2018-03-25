@@ -29,9 +29,27 @@ git merge dev //将指定的dev分支合并到当前分支
 git branch -d dev //删除dev分支
 git log --graph --pretty=oneline --abbrev-commit //查看分支合并情况
 git merge --no-ff -m "some commit" branch-name //禁用fastforward合并，可以看的出来进行过合并
+
 git stash //保留现场环境，以便日后恢复
 git stash list //查看之前git stash 保存的现场环境
 git stash apply xxx //恢复现场，不会自动删除stash list
 git stash drop xxx //删除之前保存的某个现场
 git stash pop //恢复现场并删除stash list中保存的该现场
 
+git branch -D xxx //强行删除未进行合并的分支
+git remote -v //查看远程库信息
+git push origin branch-name//本地新建的分支如果不推送到远程，对其他人就是不可见的
+                           //从本地推送分支，如果推送失败，先用git pull抓去远程的新提交
+git checkout -b branch-name origin/branch-name //在本地创建和远程分支对应的分支，分支的名称最好一致
+git branch --set-upstream branch-name origin/branch-name //建立本地分支和远程分支的关联
+git pull //从远程抓取分支
+
+git tag <name> //用于新建一个标签，默认未HEAD，也可以指定一个commit id
+git tag -a <tagname> -m "blablabla..." id //可以指定标签信息
+git tag -s <tagname> -m "blablabla..." id //可以用PGP签名标签
+git tag //查看所有标签
+git show <tagname> //可以查看标签xxx的详细信息
+git tag -d v0.1 //删除某个标签
+git push origin v1.0 //推送某个标签到远程
+git push origin --tags //推送全部尚未推送到远程的本地标签
+git push origin :refs/tags/v0.9 //如果标签已经全部推送到远程，就要先删除本地标签，然后从远程删除
