@@ -29,4 +29,9 @@ git merge dev //将指定的dev分支合并到当前分支
 git branch -d dev //删除dev分支
 git log --graph --pretty=oneline --abbrev-commit //查看分支合并情况
 git merge --no-ff -m "some commit" branch-name //禁用fastforward合并，可以看的出来进行过合并
+git stash //保留现场环境，以便日后恢复
+git stash list //查看之前git stash 保存的现场环境
+git stash apply xxx //恢复现场，不会自动删除stash list
+git stash drop xxx //删除之前保存的某个现场
+git stash pop //恢复现场并删除stash list中保存的该现场
 
